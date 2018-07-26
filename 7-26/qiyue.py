@@ -11,6 +11,8 @@ def hello():
     # 1/0    访问之后显示具体的错误
     return 'Hello QiYue'
 
+
+
 # app.add_url_rule('hello',view_func=hello)   即插视图使用add_url_rule
 
 if __name__ == '__main__':
