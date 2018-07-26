@@ -13,6 +13,7 @@ def hello():
 
 
 
+
 # app.add_url_rule('hello',view_func=hello)   即插视图使用add_url_rule
 
 if __name__ == '__main__':
