@@ -1,7 +1,6 @@
 from flask import Flask,make_response
 from config import DEBUG
 
-__author__ = '七月'
 
 app = Flask(__name__)
 
