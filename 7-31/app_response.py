@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 class JSONResponse(Response):
-    @classmethod
+    @classmethod   #定义为静态
     def force_type(cls,rv,environ=None):
         if isinstance(rv,dict):
             rv = jsonify(rv)

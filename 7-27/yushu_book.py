@@ -12,7 +12,7 @@ class YuShuBook:
         return cls(result)
      
 
-    @classmethod
+    @classmetho
     def search_by_keyword(cls,keyword):
         url = YuShuBook.keyword_url.format(keyword)
         result = HTTP.get(cls,url)
