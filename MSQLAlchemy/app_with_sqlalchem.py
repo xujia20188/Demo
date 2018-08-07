@@ -6,7 +6,6 @@ from users import User
 app = Flask(__name__)
 app.config.from_object('config')
 db.init_app(app)
-
 # 先清除所有的表，再创建表
 # with app.app_context():
 #     db.drop_all()
