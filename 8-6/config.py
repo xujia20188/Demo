@@ -1,3 +1,5 @@
+#配置文件
+
 from consts import DB_URI
 
 DEBUG = True

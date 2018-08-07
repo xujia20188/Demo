@@ -1,11 +1,6 @@
-# HOSTNAME = 'localhost'
-# DATABASE = 'dev'
-# USERNAME = 'xujia'
-# PASSWORD = '123'
-# DB_URI = "mysql://{}:{}@{}/{}".format(USERNAME,PASSWORD,HOSTNAME,DATABASE)
-# encoding: utf-8
-# 数据库 root:747425216 drive用pymysql
-# dialect+drive://username:password@host:port/database
+# 固定常量
+
+
 DIALECT = 'mysql'
 DRIVE = 'pymysql'
 USERNAME = 'root'
