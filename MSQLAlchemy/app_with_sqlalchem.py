@@ -7,11 +7,10 @@ from datetime import datetime
 app = Flask(__name__)
 app.config.from_object('config')
 db.init_app(app)
-# 先清除所有的表，再创建表
-with app.app_context():
-    db.drop_all()
-    db.create_all()
-
+# # 先清除所有的表，再创建表
+# with app.app_context():
+#     db.drop_all()
+#     db.create_all()
 
 
 #插入记录
@@ -20,7 +19,7 @@ def users():
     #form表单， .get()获取信息
     username = request.form.get('name')
     password = request.form.get('u_password')
-    print(password)
+    
 
     #判断是否有重复的用户
     if User.query.filter_by(name=username).count() > 0:
@@ -28,16 +27,20 @@ def users():
         return "This user is already exise."
     else:
         user = User(name=username,u_password=password)
-        print('User ID:{}'.format(user.id))
-        db.session.add(user)
-        db.session.commit()
+        #判断用户密码是否为空
+        if len(password) == 0:
+        # if  not password == True:
+            print("请输入用户密码")
+            return "please insert password"
+        else:
+            print('User ID:{}'.format(user.id))
+            db.session.add(user)
+            db.session.commit()
 
-        #返回注册时间
-        now = datetime.now()
-        print(now)
-        return jsonify({'id': user.id})
-
-
+            #返回注册时间
+            now = datetime.now()
+            print(now)
+            return jsonify({'id': user.id})
 
 
 #查询全部记录
@@ -55,7 +58,6 @@ def getallusers():
     return "ok"
 
 
-
 #查询单条记录
 @app.route('/users/<username>',methods=['GET'])
 def show_user(username):
@@ -66,7 +68,6 @@ def show_user(username):
     else:   
         print(user.u_password)
         return "ok"
-
 
 
 #删除记录
@@ -82,7 +83,6 @@ def deleteuser(username):
         db.session.delete(a)
         db.session.commit()
         return "ok"
-
 
 
 #更新记录
